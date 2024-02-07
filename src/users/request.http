@@ -22,6 +22,6 @@ PATCH http://localhost:3000/auth/2
 Content-Type: application/json
 
 {
-    "email": "test@gmail.com",
+    "email": "test22@gmail.com",
     "password": "12345678"
 }
