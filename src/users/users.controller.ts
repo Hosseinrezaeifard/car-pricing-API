@@ -9,12 +9,12 @@ import {
   Query,
   NotFoundException,
   UseInterceptors,
-  ClassSerializerInterceptor,
 } from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user-dto';
 import { UpdateUserDto } from './dtos/update-user-dto';
 import { UsersService } from './users.service';
 import { SerializeInterceptor } from 'src/interceptors/serialize.interceptor';
+import { UserDto } from './dtos/user.dto';
 @Controller('auth')
 export class UsersController {
   constructor(private usersService: UsersService) {}
@@ -25,7 +25,7 @@ export class UsersController {
   }
 
   // @UseInterceptors(ClassSerializerInterceptor)
-  @UseInterceptors(SerializeInterceptor)
+  @UseInterceptors(new SerializeInterceptor(UserDto))
   @Get('/:id')
   // Ids are numbers in the request params even though they're not strings (are numbers) in db!
   async findUser(@Param('id') id: string) {
