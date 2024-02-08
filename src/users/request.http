@@ -4,8 +4,8 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-    "email": "test2@gmail.com",
-    "password": "123456789-2"
+    "email": "2@gmail.com",
+    "password": "2"
 }
 
 ### Find a particular user
